@@ -1,10 +1,11 @@
-import { Box, Button, Card, CardHeader, Grid, MenuItem, SelectChangeEvent,Menu  } from '@mui/material'
+import { Box, Button, Card, CardHeader, Grid, MenuItem, SelectChangeEvent, Menu } from '@mui/material'
 import axios from 'axios'
 import { GetStaticProps, InferGetStaticPropsType } from 'next/types'
-import React, { useCallback, useState, forwardRef,MouseEvent } from 'react'
+import React, { useCallback, useState, forwardRef, MouseEvent } from 'react'
 import CustomTextField from 'src/@core/components/mui/text-field'
 import { CardStatsType } from 'src/@fake-db/types'
-import CardStatisticsHorizontal from 'src/views/ui/cards/statistics/CardStatisticsHorizontal'
+
+// import CardStatisticsHorizontal from 'src/views/ui/cards/statistics/CardStatisticsHorizontal'
 import { useTheme } from '@mui/material/styles'
 import format from 'date-fns/format'
 import addDays from 'date-fns/addDays'
@@ -14,7 +15,7 @@ import { DateType } from 'src/types/forms/reactDatepickerTypes'
 
 // ** Styled Component
 import DatePickerWrapper from 'src/@core/styles/libs/react-datepicker'
-
+import RequestCard from 'src/@core/components/cards/RequestCard'
 
 interface PickerProps {
   label?: string
@@ -54,7 +55,7 @@ const Requests = ({ apiData }: InferGetStaticPropsType<typeof getStaticProps>) =
     setStartDateRange(start)
     setEndDateRange(end)
   }
-
+  console.log(apiData)
   const CustomInput = forwardRef((props: PickerProps, ref) => {
     const startDate = format(props.start, 'MM/dd/yyyy')
     const endDate = props.end !== null ? ` - ${format(props.end, 'MM/dd/yyyy')}` : null
@@ -77,14 +78,28 @@ const Requests = ({ apiData }: InferGetStaticPropsType<typeof getStaticProps>) =
   return (
     <>
       <Card sx={{ mb: 6 }}>
-        <CardHeader title='Requests' />
+        <CardHeader title='Requests' sx={{ backgroundColor: '#F9F3E8', fontWeight: 'bold' }} />
       </Card>
-      <Card sx={{ backgroundColor: 'transparent' }}>
-        <Grid item xs={12} sx={{ backgroundColor: 'transparent' }}>
-          <CardStatisticsHorizontal data={apiData.statsHorizontal} />
+      <Card sx={{ backgroundColor: '#F9F3E8' }}>
+        <Grid
+          item
+          xs={12}
+          sx={{
+            backgroundColor: '#F9F3E8',
+            display: 'flex',
+            flexWrap: 'wrap',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+            p: 8
+          }}
+        >
+          <RequestCard title='New Requests' count='10' />
+          <RequestCard title='Delayed Requests' count='5' />
+          <RequestCard title='Escalated Requests' count='2' />
+          <RequestCard title='On Hold Requests' count='12' />
         </Grid>
       </Card>
-      <Card sx={{ my: 6 }}>
+      <Card sx={{ my: 6, backgroundColor: '#F9F3E8' }}>
         <Box
           sx={{
             p: 8,
@@ -170,7 +185,12 @@ const Requests = ({ apiData }: InferGetStaticPropsType<typeof getStaticProps>) =
               aria-controls='simple-menu'
               aria-haspopup='true'
               onClick={handleClick}
-              sx={{ whiteSpace: 'nowrap',color:'white', backgroundColor: '#830823', ':hover': { backgroundColor: '#A53B52' } }}
+              sx={{
+                whiteSpace: 'nowrap',
+                color: 'white',
+                backgroundColor: '#830823',
+                ':hover': { backgroundColor: '#A53B52' }
+              }}
             >
               Advanced Filters
             </Button>

@@ -133,7 +133,7 @@ const LoginPage = () => {
   const imageSource = skin === 'bordered' ? 'auth-v2-login-illustration-bordered' : 'auth-v2-login-illustration'
 
   return (
-    <Box className='content-right' sx={{ backgroundColor: 'background.paper' }}>
+    <Box className='content-right' sx={{ backgroundColor: '' }}>
       {!hidden ? (
         <Box
           sx={{
@@ -143,7 +143,7 @@ const LoginPage = () => {
             alignItems: 'center',
             borderRadius: '20px',
             justifyContent: 'center',
-            backgroundColor: 'customColors.bodyBg',
+            backgroundColor: '#F9F3E8',
             margin: theme => theme.spacing(8, 0, 8, 8)
           }}
         >
@@ -194,9 +194,7 @@ const LoginPage = () => {
               <Typography variant='h3' sx={{ mb: 1.5 }}>
                 {`Welcome to ${themeConfig.templateName}! 👋🏻`}
               </Typography>
-              <Typography sx={{ color: 'text.secondary' }}>
-                Please sign-in to your account and start the adventure
-              </Typography>
+              <Typography sx={{ color: '#830823' }}>Please sign-in to your account and start the adventure</Typography>
             </Box>
             <Alert icon={false} sx={{ py: 3, mb: 6, ...bgColors.primaryLight, '& .MuiAlert-message': { p: 0 } }}>
               <Typography variant='body2' sx={{ mb: 2, color: 'primary.main' }}>
@@ -272,6 +270,7 @@ const LoginPage = () => {
                 <FormControlLabel
                   label='Remember Me'
                   control={<Checkbox checked={rememberMe} onChange={e => setRememberMe(e.target.checked)} />}
+                  sx={{ '& .MuiFormControlLabel-label': { color: '#830823' } }}
                 />
                 <Typography component={LinkStyled} href='/forgot-password'>
                   Forgot Password?
@@ -281,14 +280,14 @@ const LoginPage = () => {
                 Login
               </Button>
               <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'center' }}>
-                <Typography sx={{ color: 'text.secondary', mr: 2 }}>New on our platform?</Typography>
+                <Typography sx={{ color: '#830823', mr: 2 }}>New on our platform?</Typography>
                 <Typography href='/register' component={LinkStyled}>
                   Create an account
                 </Typography>
               </Box>
               <Divider
                 sx={{
-                  color: 'text.disabled',
+                  color: '#830823',
                   '& .MuiDivider-wrapper': { px: 6 },
                   fontSize: theme.typography.body2.fontSize,
                   my: theme => `${theme.spacing(6)} !important`
