@@ -51,8 +51,9 @@ const ListItem = styled(MuiListItem)<ListItemProps>(({ theme }) => ({
   cursor: 'pointer',
   borderRadius: theme.shape.borderRadius,
   '&:hover': {
-    background: '#B6465F',
-    color: '#830823'
+    background: '#EDE0C5',
+    color: '#830823',
+    ':hover': { color: '#830823' }
   }
 }))
 
@@ -60,7 +61,8 @@ const NavigationMenu = styled(Paper)(({ theme }) => ({
   overflowY: 'auto',
   padding: theme.spacing(2, 0),
   maxHeight: 'calc(100vh - 13rem)',
-  backgroundColor: '#B6465F',
+  backgroundColor: '#EDE0C5',
+  
   ...(themeConfig.menuTextTruncate ? { width: 250 } : { minWidth: 250 }),
   '& > :not(:last-child)': {
     marginBottom: theme.spacing(1)
@@ -188,7 +190,7 @@ const HorizontalNavGroup = (props: Props) => {
               className={clsx('menu-group', { 'Mui-selected': hasActiveChild(item, currentURL) })}
               {...(horizontalMenuToggle === 'click' ? { onClick: handleMenuToggleOnClick } : {})}
               sx={{
-                ...(menuOpen ? { backgroundColor: 'action.hover' } : {}),
+                ...(menuOpen ? { backgroundColor: '#EDE0C5' } : {}),
                 ...(!hasParent
                   ? {
                       '&.Mui-selected': {
@@ -229,18 +231,23 @@ const HorizontalNavGroup = (props: Props) => {
                     ...(menuTextTruncate && { overflow: 'hidden' })
                   }}
                 >
-                  <ListItemIcon sx={{ mr: 2, color: menuOpen ? 'text.primary' : 'text.secondary' }}>
+                  <ListItemIcon sx={{ mr: 2, color: menuOpen ? '#EDE0C5#830823' : 'text.secondary' }}>
                     <UserIcon icon={icon} fontSize={icon === navSubItemIcon ? '0.625rem' : '1.375rem'} />
                   </ListItemIcon>
                   <Typography
                     {...(menuTextTruncate && { noWrap: true })}
-                    sx={{ color: menuOpen ? 'text.primary' : 'text.secondary' }}
+                    sx={{ color: menuOpen ? '#830823' : 'text.secondary' }}
                   >
                     <Translations text={item.title} />
                   </Typography>
                 </Box>
                 <Box
-                  sx={{ display: 'flex', alignItems: 'center', color: menuOpen ? 'text.secondary' : 'text.disabled' }}
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    color: menuOpen ? '#830823' : 'text.disabled',
+                    ':hover': { color: '#830823' }
+                  }}
                 >
                   {item.badgeContent ? (
                     <Chip

@@ -45,13 +45,14 @@ const ListItem = styled(MuiListItem)<
   width: 'auto',
   borderRadius: theme.shape.borderRadius,
   '&:hover': {
-    backgroundColor: '#e7ad99'
+    backgroundColor: '#EDE0C5'
   },
   '&.active, &.active:hover': {
-    backgroundColor: '#B6465F'
+    backgroundColor: '#EDE0C5'
   },
   '&.active .MuiTypography-root, &.active .MuiListItemIcon-root': {
-    color: 'white'
+    color: '#830823',
+    ':hover': { color: '#830823' }
   },
   '&.active .MuiTypography-root': {
     fontWeight: 500
@@ -104,10 +105,10 @@ const HorizontalNavLink = (props: Props) => {
               ? {
                   '&.active, &.active:hover': {
                     boxShadow: theme => `0px 2px 6px ${hexToRGBA(theme.palette.primary.main, 0.48)}`,
-
+                    color: '#830823',
                     '&:focus-visible': {},
                     '& .MuiTypography-root, & .MuiListItemIcon-root': {
-                      color: 'common.white'
+                      color: '#830823'
                     }
                   }
                 }
@@ -122,11 +123,12 @@ const HorizontalNavLink = (props: Props) => {
                 })
           }}
         >
-          <Box sx={{ gap: 2, width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Box sx={{ gap: 2, width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'space-between',color:'#830823' }}>
             <Box
               sx={{
                 display: 'flex',
                 alignItems: 'center',
+                color:'#830823',
                 ...(menuTextTruncate && { overflow: 'hidden' })
               }}
             >

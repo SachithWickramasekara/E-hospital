@@ -27,7 +27,7 @@ const columns: GridColDef[] = [
 
 const DepartmentTable = () => {
   return (
-    <Box sx={{ height: 500 ,px:8 }}>
+    <Box sx={{ height: 500 }}>
       <DataGrid columns={columns} rows={rows.slice(0, 10)} />
     </Box>
   )

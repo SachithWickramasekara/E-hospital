@@ -18,7 +18,8 @@ const Table = () => {
           '& .MuiTableCell-head': {
             fontWeight: 500,
             letterSpacing: '1px',
-            fontSize: theme.typography.body2.fontSize
+            fontSize: theme.typography.body2.fontSize,
+            color: '#830823'
           }
         })
       }
@@ -56,7 +57,7 @@ const Table = () => {
           borderBottom: `1px solid ${theme.palette.divider}`
         }),
         paddingCheckbox: ({ theme }: OwnerStateThemeType) => ({
-          paddingLeft: theme.spacing(3.25)
+          paddingLeft: theme.spacing(3.25),
         }),
         stickyHeader: ({ theme }: OwnerStateThemeType) => ({
           backgroundColor: theme.palette.customColors.tableHeaderBg
