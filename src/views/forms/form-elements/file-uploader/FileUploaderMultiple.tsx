@@ -73,7 +73,7 @@ const FileUploaderMultiple = () => {
     <Fragment>
       <div {...getRootProps({ className: 'dropzone' })}>
         <input {...getInputProps()} />
-        <Box sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column' }}>
+        <Box sx={{ display: 'flex', textAlign: 'center', alignItems: 'center', flexDirection: 'column',paddingBottom:'20px' }}>
           <Box
             sx={{
               mb: 8.75,
@@ -91,7 +91,7 @@ const FileUploaderMultiple = () => {
           <Typography variant='h4' sx={{ mb: 2.5 }}>
             Drop files here or click to upload.
           </Typography>
-          <Typography sx={{ color: 'text.secondary' }}>
+          <Typography sx={{ color: '#830823' }}>
             (This is just a demo drop zone. Selected files are not actually uploaded.)
           </Typography>
         </Box>

@@ -12,6 +12,7 @@ import CustomTextField from 'src/@core/components/mui/text-field'
 import DatePickerWrapper from 'src/@core/styles/libs/react-datepicker'
 import { DateType } from 'src/types/forms/reactDatepickerTypes'
 import DatePicker from 'react-datepicker'
+import Link from 'next/link'
 
 interface PickerProps {
   label?: string
@@ -87,7 +88,9 @@ const TableHeader = (props: TableHeaderProps) => {
             console.log('clicked')
           }}
         >
-          + New Request
+          <Link href='/requests/newRequests' style={{ textDecoration: 'none', color: 'white' }}>
+            <span style={{ textDecoration: 'none', color: 'white' }}>+ New Request</span>
+          </Link>
         </Button>
         <CustomTextField
           select
@@ -114,7 +117,6 @@ const TableHeader = (props: TableHeaderProps) => {
               shouldCloseOnSelect={false}
               id='date-range-picker-months'
               onChange={handleOnChangeRange}
-            
               customInput={<CustomInput end={endDateRange as Date | number} start={startDateRange as Date | number} />}
             />
           </DatePickerWrapper>
